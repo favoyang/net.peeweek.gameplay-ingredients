@@ -14,10 +14,11 @@ namespace GameplayIngredients
                 Name = GetDefaultName();
         }
 
-        public abstract void Execute(GameObject instigator = null);
+        public abstract void Execute(GameObject instigator = null, params object[] paramObjects);
+
         public abstract new string ToString();
 
-        public static void Call(Callable[] calls, GameObject instigator = null)
+        public static void Call(Callable[] calls, GameObject instigator = null, params object[] paramObjects)
         {
             if (calls == null)
             {
@@ -31,16 +32,16 @@ namespace GameplayIngredients
                     Debug.Log($"[CALL] : {call.gameObject.scene.name} : {call.gameObject.name} :> {call.GetType().Name} ({call.Name})");
 
                 if(call != null)
-                    call.Execute(instigator);
+                    call.Execute(instigator, paramObjects);
                 else
                     Debug.LogError($"Cannot execute Call: Null or Missing");
             }
         }
 
-        public static void Call(Callable call, GameObject instigator = null)
+        public static void Call(Callable call, GameObject instigator = null, params object[] paramObjects)
         {
             if (call != null)
-                call.Execute(instigator);
+                call.Execute(instigator, paramObjects);
             else
                 Debug.LogError("Cannot execute call: Null or Missing");
         }
