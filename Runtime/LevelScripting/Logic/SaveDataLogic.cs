@@ -42,7 +42,7 @@ namespace GameplayIngredients.Logic
         [ReorderableList]
         public Callable[] OnTestFail;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             var gsm = Manager.Get<GameSaveManager>();
             bool result = false;
@@ -106,9 +106,9 @@ namespace GameplayIngredients.Logic
             }
 
             if (result)
-                Callable.Call(OnTestSuccess, instigator);
+                Callable.Call(OnTestSuccess, instigator, paramObjects);
             else
-                Callable.Call(OnTestFail, instigator);
+                Callable.Call(OnTestFail, instigator, paramObjects);
 
         }
 

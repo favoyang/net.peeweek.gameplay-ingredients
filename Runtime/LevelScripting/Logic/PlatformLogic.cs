@@ -22,11 +22,11 @@ namespace GameplayIngredients.Logic
         [ReorderableList]
         public Callable[] Calls;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
 
             if(platforms.Contains(Application.platform) == (inclusionMode == InclusionMode.IsTarget))
-                Call(Calls, instigator);
+                Call(Calls, instigator, paramObjects);
         }
     }
 }

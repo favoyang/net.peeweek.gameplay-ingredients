@@ -26,16 +26,16 @@ namespace GameplayIngredients.Logic
             state = InitialState;
         }
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             if (state == State.Flop)
             {
-                Callable.Call(OnFlip, instigator);
+                Callable.Call(OnFlip, instigator, paramObjects);
                 state = State.Flip;
             }
             else
             {
-                Callable.Call(OnFlop, instigator);
+                Callable.Call(OnFlop, instigator, paramObjects);
                 state = State.Flop;
             }
         }

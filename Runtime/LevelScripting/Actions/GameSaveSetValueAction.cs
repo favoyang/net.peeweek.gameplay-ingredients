@@ -20,7 +20,7 @@ namespace GameplayIngredients.Actions
         [ShowIf("isFloat")]
         public float FloatValue;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             var gsm = Manager.Get<GameSaveManager>();
             switch(valueType)

@@ -9,7 +9,7 @@ namespace GameplayIngredients.Actions
         [NonNullCheck]
         public Factory factory;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             if (factory != null)
                 factory.Spawn();

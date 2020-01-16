@@ -8,7 +8,7 @@ public class VFXSendEventAction : ActionBase
 
     public string eventName = "Event";
 
-    public override void Execute(GameObject instigator = null)
+    public override void Execute(GameObject instigator = null, params object[] paramObjects)
     {
         int id = Shader.PropertyToID(eventName);
         var attrib = visualEffect.CreateVFXEventAttribute();

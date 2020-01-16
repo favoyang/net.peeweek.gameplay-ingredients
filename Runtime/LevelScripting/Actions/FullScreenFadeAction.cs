@@ -16,9 +16,9 @@ namespace GameplayIngredients.Actions
         [ReorderableList]
         public Callable[] OnComplete;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
-            Manager.Get<FullScreenFadeManager>().Fade(Duration, Fading, OnComplete, instigator);
+            Manager.Get<FullScreenFadeManager>().Fade(Duration, Fading, OnComplete, instigator, paramObjects);
         }
     }
 

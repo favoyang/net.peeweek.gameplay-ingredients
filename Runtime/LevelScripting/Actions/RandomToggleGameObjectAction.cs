@@ -8,7 +8,7 @@ namespace GameplayIngredients.Actions
         [ReorderableList]
         public GameObject[] Targets;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             var random = Targets[Random.Range(0,Targets.Length)];
 

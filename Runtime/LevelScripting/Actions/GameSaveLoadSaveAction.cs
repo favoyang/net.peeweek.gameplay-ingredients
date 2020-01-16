@@ -16,7 +16,7 @@ namespace GameplayIngredients.Actions
         public Action action = Action.Load;
         public byte UserSaveIndex = 0;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             if(action == Action.Load)
             {

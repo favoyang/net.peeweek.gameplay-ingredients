@@ -10,10 +10,11 @@ namespace GameplayIngredients.Actions
         [ReorderableList]
         public GameObject[] ObjectsToTeleport;
         public bool TeleportInstigator = false;
+        public bool TeleportToFirstCollisionParam = false;
 
         public Transform TeleportTarget;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             if(TeleportTarget == null)
             {
@@ -27,8 +28,22 @@ namespace GameplayIngredients.Actions
                     Teleport(obj, TeleportTarget.position, TeleportTarget.rotation);
                 }
             }
+            var position = TeleportTarget.position;
+            var rotation = TeleportTarget.rotation;
+
+            if(TeleportToFirstCollisionParam)
+            {
+                var collision = GetParam<Collision>(paramObjects);
+                if(collision != null)
+                {
+                    position = collision.gameObject.transform.position;
+                    rotation = collision.gameObject.transform.rotation;
+                }
+            }
+
+
             if (TeleportInstigator && instigator != null)
-                Teleport(instigator, TeleportTarget.position, TeleportTarget.rotation);
+                Teleport(instigator, position, rotation);
         }
 
         static void Teleport(GameObject obj, Vector3 worldPosition, Quaternion rotation)

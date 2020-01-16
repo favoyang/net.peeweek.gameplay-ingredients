@@ -31,7 +31,7 @@ namespace GameplayIngredients.Actions
         [ShowIf("explosion")]
         public float explosionRadius;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             Rigidbody target = m_Rigidbody;
 

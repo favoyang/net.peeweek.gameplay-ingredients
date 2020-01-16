@@ -19,7 +19,7 @@ namespace GameplayIngredients.Actions
         public PlayableDirector director;
         public TimelineControlMode mode = TimelineControlMode.Play;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             switch(mode)
             {

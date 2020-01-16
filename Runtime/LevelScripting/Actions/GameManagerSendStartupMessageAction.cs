@@ -14,15 +14,15 @@ namespace GameplayIngredients.Actions
 
         public MessageType messageType;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             switch(messageType)
             {
                 case MessageType.GameLevelStart:
-                    Messager.Send(GameManager.GameLevelStartMessage);
+                    Messager.Send(GameManager.GameLevelStartMessage, instigator, paramObjects);
                     break;
                 case MessageType.MainMenuStart:
-                    Messager.Send(GameManager.MainMenuStartMessage);
+                    Messager.Send(GameManager.MainMenuStartMessage, instigator, paramObjects);
                     break;
             }
         }

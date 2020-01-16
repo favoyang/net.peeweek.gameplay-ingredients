@@ -17,7 +17,7 @@ namespace GameplayIngredients.Actions
         public UnityEvent OnInterpComplete;
 
         Coroutine m_Coroutine;
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             if (InterpDuration <= 0.0f)
             {

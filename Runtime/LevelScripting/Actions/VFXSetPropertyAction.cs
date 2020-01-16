@@ -47,7 +47,7 @@ public class VFXSetPropertyAction : ActionBase
     [ShowIf("isInt")]
     public int IntValue = 0;
 
-    public override void Execute(GameObject instigator = null)
+    public override void Execute(GameObject instigator = null, params object[] paramObjects)
     {
         int id = Shader.PropertyToID(property);
 

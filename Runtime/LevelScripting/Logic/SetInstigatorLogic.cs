@@ -12,9 +12,9 @@ namespace GameplayIngredients.Logic
 
         public GameObject NewInstigator;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
-            Call(Next, NewInstigator);
+            Call(Next, NewInstigator, paramObjects);
         }
     }
 }

@@ -10,10 +10,10 @@ namespace GameplayIngredients.Logic
         [ReorderableList]
         public Callable[] RandomCalls;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             int r = Random.Range(0, RandomCalls.Length);
-            Callable.Call(RandomCalls[r], instigator);
+            Callable.Call(RandomCalls[r], instigator, paramObjects);
         }
     }
 }

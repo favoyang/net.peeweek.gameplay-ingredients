@@ -14,7 +14,7 @@ namespace GameplayIngredients.Actions
         public bool AttachToTarget = false;
         public bool DontDestroyPrefabsOnLoad = false;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             foreach (var prefab in Prefabs)
             {

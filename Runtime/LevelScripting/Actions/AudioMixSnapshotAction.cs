@@ -13,7 +13,7 @@ public class AudioMixSnapshotAction : ActionBase
     public float TimeToReach = 1.0f;
     public string SnapshotName = "master";
 
-    public override void Execute(GameObject instigator = null)
+    public override void Execute(GameObject instigator = null, params object[] paramObjects)
     {
         Mixer.TransitionToSnapshots(new AudioMixerSnapshot[]{ Mixer.FindSnapshot(SnapshotName)}, new float[]{ 1.0f}, TimeToReach);
     }

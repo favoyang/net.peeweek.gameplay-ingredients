@@ -39,7 +39,7 @@ namespace GameplayIngredients.LevelStreaming
         private float[] percentages;
         private AsyncOperation[] asyncOperations;
 
-        public void LoadScenes(StreamingAction action, string[] scenes, string sceneToActivate, bool showUI, Callable[] onLoadComplete, bool replace = false)
+        public void LoadScenes(StreamingAction action, string[] scenes, string sceneToActivate, bool showUI, Callable[] onLoadComplete, params object[] paramObjects)
         {
             if (EnableDebug)
                 DebugText.gameObject.SetActive(true);

@@ -15,7 +15,7 @@ namespace GameplayIngredients.Logic
         public int FactoryIndex = 0;
         public bool ContinueEvenIfNull = false;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             if(Factory != null)
             {

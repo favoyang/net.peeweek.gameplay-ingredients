@@ -46,7 +46,7 @@ namespace GameplayIngredients.Actions
         bool isValueGameSave() { return ValueSource == ValueSourceType.GameSave; }
         bool isValueGlobal() { return ValueSource == ValueSourceType.GlobalVariable; }
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             int value;
             switch (ValueSource)

@@ -16,7 +16,7 @@ namespace GameplayIngredients.Logic
         [ReorderableList, NonNullCheck]
         public Callable[] CasesToCall;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             var gsm = Manager.Get<GameSaveManager>();
             if (gsm.HasInt(Key, SaveLocation))
@@ -25,31 +25,31 @@ namespace GameplayIngredients.Logic
                 if(value > 0 && value < CasesToCall.Length)
                 {
                     if (CasesToCall[value] != null)
-                        Callable.Call(CasesToCall[value], instigator);
+                        Callable.Call(CasesToCall[value], instigator, paramObjects);
                     else
                     {
                         Debug.LogWarning($"[SaveDataSwitchOnIntLogic] {gameObject.name} : Callable at index #{Key} was null, using default case.");
-                        CallDefault(instigator);
+                        CallDefault(instigator, paramObjects);
                     }
                 }
                 else
                 {
                     Debug.LogWarning($"[SaveDataSwitchOnIntLogic] {gameObject.name} : Callable at index #{Key} was out of range, using default case.");
-                    CallDefault(instigator);
+                    CallDefault(instigator, paramObjects);
                 }
             }
             else
             {
                 Debug.LogWarning($"[SaveDataSwitchOnIntLogic] {gameObject.name} : Could not Find {Key} in {SaveLocation} Save, using default case.");
-                CallDefault(instigator);
+                CallDefault(instigator, paramObjects);
             }
         }
 
-        void CallDefault(GameObject instigator)
+        void CallDefault(GameObject instigator, params object[] paramObjects)
         {
             if(DefaultCaseToCall != null)
             {
-                Callable.Call(DefaultCaseToCall, instigator);
+                Callable.Call(DefaultCaseToCall, instigator, paramObjects);
             }
             else
             {

@@ -14,7 +14,7 @@ namespace GameplayIngredients.Actions
         [ShowIf("RandomizeVolume")]
         public Vector2 VolumeRange = new Vector2(0, 1);
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             if (Source != null)
             {

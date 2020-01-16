@@ -22,7 +22,7 @@ namespace GameplayIngredients.Actions
         public GameObject parentObject;
         public bool KeepScale;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             if (parentObject == null)
             {

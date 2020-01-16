@@ -56,6 +56,25 @@ namespace GameplayIngredients
         {
             return GetType().Name;
         }
+
+        public static IEnumerable<T> GetParams<T>(object[] paramObjects)
+        {
+            foreach (var param in paramObjects)
+            {
+                if (param is T)
+                    yield return (T)param;
+            }
+        }
+
+        public static T GetParam<T>(object[] paramObjects)
+        {
+            foreach (var param in paramObjects)
+            {
+                if (param is T)
+                    return (T)param;
+            }
+            return default(T);
+        }
     }
 }
 

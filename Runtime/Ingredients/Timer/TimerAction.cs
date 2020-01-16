@@ -30,7 +30,7 @@ namespace GameplayIngredients.Actions
         public bool Restart = false;
 
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             if(timer == null)
             {

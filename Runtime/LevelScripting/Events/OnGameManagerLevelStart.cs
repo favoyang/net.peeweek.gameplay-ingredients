@@ -44,11 +44,11 @@ namespace GameplayIngredients.Events
             }
         }
 
-        void Execute(GameObject instigator = null)
+        void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             try
             {
-                Callable.Call(OnMessageRecieved, instigator);
+                Callable.Call(OnMessageRecieved, instigator, paramObjects);
             }
             catch (System.Exception e)
             {

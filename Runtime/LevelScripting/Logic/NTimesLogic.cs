@@ -24,12 +24,12 @@ namespace GameplayIngredients.Logic
             m_RemainingCount = Count;
         }
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             if(m_RemainingCount > 0)
             {
                 m_RemainingCount--;
-                Callable.Call(Calls, instigator);
+                Callable.Call(Calls, instigator, paramObjects);
             }
         }
     }

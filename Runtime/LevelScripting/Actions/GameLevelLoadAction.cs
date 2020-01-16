@@ -35,7 +35,7 @@ namespace GameplayIngredients.Actions
         private bool isSpecified() { return level == Target.SpecifiedLevel; }
         private bool isGameSave() { return level == Target.FromGameSave; }
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             int index = -2;
             var manager = Manager.Get<GameManager>();

@@ -16,7 +16,7 @@ namespace GameplayIngredients.Actions
         public string LogText = "Instigator = %INSTIGATOR%";
         public LogType type = LogType.Log;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             Debug.unityLogger.Log(type, FormatString(instigator));            
         }

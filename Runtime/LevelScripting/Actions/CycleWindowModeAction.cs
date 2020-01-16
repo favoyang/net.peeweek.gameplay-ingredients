@@ -25,7 +25,7 @@ namespace GameplayIngredients.Actions
                 ButtonLabel.text = getText(Screen.fullScreen);
         }
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             Screen.fullScreen = !Screen.fullScreen;
         }

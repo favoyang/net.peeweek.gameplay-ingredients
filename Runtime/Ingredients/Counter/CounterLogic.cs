@@ -51,7 +51,7 @@ namespace GameplayIngredients.Logic
         bool isValueGameSave() { return ValueSource == ValueSourceType.GameSave; }
         bool isValueGlobal() { return ValueSource == ValueSourceType.GlobalVariable; }
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             int value;
             switch (ValueSource)
@@ -110,9 +110,9 @@ namespace GameplayIngredients.Logic
             }
 
             if (test)
-                Callable.Call(OnTestSuccess, instigator);
+                Callable.Call(OnTestSuccess, instigator, paramObjects);
             else
-                Callable.Call(OnTestFail, instigator);
+                Callable.Call(OnTestFail, instigator, paramObjects);
 
         }
     }

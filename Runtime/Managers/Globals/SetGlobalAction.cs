@@ -28,7 +28,7 @@ namespace GameplayIngredients.Actions
         bool isString() { return type == Globals.Type.String; }
         bool isGameObject() { return type == Globals.Type.GameObject; }
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             switch (type)
             {

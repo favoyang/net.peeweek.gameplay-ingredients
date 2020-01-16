@@ -9,7 +9,7 @@ namespace GameplayIngredients.Interactions
     {
         public InteractiveUser InteractiveUser;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             if (InteractiveUser != null)
                 InteractiveUser.Interact();

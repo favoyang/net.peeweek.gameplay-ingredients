@@ -13,7 +13,7 @@ namespace GameplayIngredients.Actions
         [NonNullCheck]
         public GameObject Target;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             if (factory != null && Target != null)
             {

@@ -20,11 +20,11 @@ namespace GameplayIngredients.Events
             Messager.RemoveMessage(MessageName, Execute);
         }
 
-        void Execute(GameObject instigator)
+        void Execute(GameObject instigator, params object[] paramObjects)
         {
             try
             {
-                Callable.Call(OnMessageRecieved, instigator);
+                Callable.Call(OnMessageRecieved, instigator, paramObjects);
             }
             catch(System.Exception e)
             {

@@ -13,12 +13,12 @@ namespace GameplayIngredients.Logic
         [ReorderableList]
         public Callable[] OnConditionInvalid;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             if (GetCondition())
-                Callable.Call(OnConditionValid, instigator);
+                Callable.Call(OnConditionValid, instigator, paramObjects);
             else
-                Callable.Call(OnConditionInvalid, instigator);
+                Callable.Call(OnConditionInvalid, instigator, paramObjects);
         }
 
         public abstract bool GetCondition();

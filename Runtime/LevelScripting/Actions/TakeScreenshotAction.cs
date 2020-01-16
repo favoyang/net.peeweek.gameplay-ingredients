@@ -9,7 +9,7 @@ namespace GameplayIngredients.Actions
         public int figureCount = 2;
         private int screenshotNumber = 0;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             ScreenCapture.CaptureScreenshot(name + screenshotNumber.ToString().PadLeft(figureCount, '0') + ".png", supersampleRate);
             screenshotNumber += 1;

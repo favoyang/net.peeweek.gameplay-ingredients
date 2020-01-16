@@ -21,7 +21,7 @@ namespace GameplayIngredients.Logic
         [ReorderableList]
         public Callable[] OnExecute;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             bool acceptPlayFromHere = !(DisableOnPlayFromHere && (PlayerPrefs.GetInt("PlayFromHere") == 1));
 
@@ -29,16 +29,16 @@ namespace GameplayIngredients.Logic
             {
                 case Mode.PlayerAndEditor:
                     if (acceptPlayFromHere)
-                        Callable.Call(OnExecute, instigator);
+                        Callable.Call(OnExecute, instigator, paramObjects);
                     break;
                 case Mode.EditorOnly:
                     if (Application.isEditor && acceptPlayFromHere)
-                        Callable.Call(OnExecute, instigator);
+                        Callable.Call(OnExecute, instigator, paramObjects);
                     break;
 
                 case Mode.PlayerOnly:
                     if (!Application.isEditor && acceptPlayFromHere)
-                        Callable.Call(OnExecute, instigator);
+                        Callable.Call(OnExecute, instigator, paramObjects);
                     break;
             }
         }

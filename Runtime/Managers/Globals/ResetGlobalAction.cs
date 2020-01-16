@@ -13,7 +13,7 @@ namespace GameplayIngredients.Actions
             Globals = 2,
             All = Locals | Globals,
         }
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             if (resetType == ResetType.Locals || resetType == ResetType.All)
                 Globals.ResetLocals();

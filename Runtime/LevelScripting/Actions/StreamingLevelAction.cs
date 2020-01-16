@@ -18,12 +18,12 @@ namespace GameplayIngredients.Actions
         [ReorderableList]
         public Callable[] OnLoadComplete;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             List<string> sceneNames = new List<string>();
             foreach (var scene in Scenes)
                 sceneNames.Add(scene);
-            Manager.Get<LevelStreamingManager>().LoadScenes(Action, sceneNames.ToArray(), SceneToActivate, ShowUI, OnLoadComplete);
+            Manager.Get<LevelStreamingManager>().LoadScenes(Action, sceneNames.ToArray(), SceneToActivate, ShowUI, OnLoadComplete, Action == LevelStreamingManager.StreamingAction.Replace, paramObjects);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace GameplayIngredients.Logic
         [ReorderableList]
         public Callable[] Calls;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             Callable.Call(Calls, instigator);
         }

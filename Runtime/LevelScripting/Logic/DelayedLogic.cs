@@ -36,7 +36,7 @@ namespace GameplayIngredients.Logic
                 m_Coroutine = null;
             }
         }
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             float newDelay;
             if (m_Coroutine != null) Cancel();
@@ -44,13 +44,13 @@ namespace GameplayIngredients.Logic
                 newDelay = Random.Range(DelayRange.x, DelayRange.y);
             else
                 newDelay = Delay;
-            m_Coroutine = RunDelay(newDelay, instigator);
+            m_Coroutine = RunDelay(newDelay, instigator, paramObjects);
             StartCoroutine(m_Coroutine);
         }
-        IEnumerator RunDelay(float Seconds, GameObject instigator = null)
+        IEnumerator RunDelay(float Seconds, GameObject instigator = null, params object[] paramObjects)
         {
             yield return new WaitForSeconds(Seconds);
-            Callable.Call(OnDelayComplete, instigator);
+            Callable.Call(OnDelayComplete, instigator, paramObjects);
             m_Coroutine = null;
         }
     }

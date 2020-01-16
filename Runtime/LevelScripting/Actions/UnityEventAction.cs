@@ -7,7 +7,7 @@ namespace GameplayIngredients.Actions
     {
         public UnityEvent OnExecute;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             OnExecute.Invoke();
         }

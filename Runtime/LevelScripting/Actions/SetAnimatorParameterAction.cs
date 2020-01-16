@@ -23,7 +23,7 @@ namespace GameplayIngredients.Actions
         [ShowIf("showBool")]
         public bool boolValue;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             if (animator == null)
                 return;

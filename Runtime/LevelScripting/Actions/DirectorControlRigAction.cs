@@ -30,7 +30,7 @@ namespace GameplayIngredients.Actions
         public bool SetTimeline = false;
         public TimelineAsset TimelineAsset;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             if (directorControlRig == null)
             {

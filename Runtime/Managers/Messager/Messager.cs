@@ -6,7 +6,7 @@ namespace GameplayIngredients
 {
     public static class Messager
     {
-        public delegate void Message(GameObject instigator = null);
+        public delegate void Message(GameObject instigator = null, params object[] paramObjects);
 
         private static Dictionary<string, List<Message>> m_RegisteredMessages;
 
@@ -38,7 +38,7 @@ namespace GameplayIngredients
                 m_RegisteredMessages.Remove(messageName);
         }
 
-        public static void Send(string eventName, GameObject instigator = null)
+        public static void Send(string eventName, GameObject instigator = null, params object[] paramObjects)
         {
             if(GameplayIngredientsSettings.currentSettings.verboseCalls)
                 Debug.Log(string.Format("[MessageManager] Broadcast: {0}", eventName));
@@ -52,7 +52,7 @@ namespace GameplayIngredients
                     foreach (var message in messages)
                     {
                         if(message != null)
-                            message.Invoke(instigator);
+                            message.Invoke(instigator, paramObjects);
                     }
                 }
                 catch (Exception e)

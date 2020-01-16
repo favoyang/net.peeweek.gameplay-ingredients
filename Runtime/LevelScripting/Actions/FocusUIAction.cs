@@ -7,7 +7,7 @@ namespace GameplayIngredients.Actions
     {
         public Selectable UIObjectToFocus;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             if (UIObjectToFocus != null)
             {

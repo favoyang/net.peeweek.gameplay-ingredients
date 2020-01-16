@@ -14,12 +14,12 @@ namespace GameplayIngredients.Logic
         [ReorderableList]
         public Callable[] IfNotCurrentState;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             if (StateMachine.CurrentState == TargetState && IfCurrentState != null && IfCurrentState.Length > 0)
-                Call(IfCurrentState, instigator);
+                Call(IfCurrentState, instigator, paramObjects);
             else if (StateMachine.CurrentState != TargetState && IfNotCurrentState != null && IfNotCurrentState.Length > 0)
-                Call(IfNotCurrentState, instigator);
+                Call(IfNotCurrentState, instigator, paramObjects);
         }
     }
 

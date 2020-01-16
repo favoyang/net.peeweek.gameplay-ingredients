@@ -9,7 +9,7 @@ namespace GameplayIngredients.Actions
         [ReorderableList]
         public UIToggle[] Targets;
 
-        public override void Execute(GameObject instigator = null)
+        public override void Execute(GameObject instigator = null, params object[] paramObjects)
         {
             foreach (var target in Targets)
             {
